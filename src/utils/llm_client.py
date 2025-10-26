@@ -38,5 +38,5 @@ The document should include:
     with open(md_path, "w", encoding="utf-8") as f:
         f.write(markdown)
 
-    print(f"✅ LLM Generated Markdown: {md_path}")
+    print(f"LLM Generated Markdown: {md_path}")
     return markdown
