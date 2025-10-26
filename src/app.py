@@ -49,10 +49,10 @@ Closed At: {closed_at}
 URL: {issue_url}
 """
 
-        # 🧠 Generate using Gemini
+        # Generate using Gemini
         doc_content = generate_doc(issue_title, context_text)
 
-        # 💾 Save both .md and .docx
+        # Save both .md and .docx
         md_path, docx_path = save_document(project_id, issue_title, doc_content)
 
         return jsonify({
@@ -62,7 +62,7 @@ URL: {issue_url}
         }), 200
 
     except Exception as e:
-        logging.error("❌ Exception in webhook:\n" + traceback.format_exc())
+        logging.error(" Exception in webhook:\n" + traceback.format_exc())
         return jsonify({"error": str(e)}), 500
 
 
