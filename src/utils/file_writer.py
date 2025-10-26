@@ -26,28 +26,28 @@ def save_document(project_id, title, content):
     if existing_md:
         path_md = os.path.join(OUTPUT_DIR, existing_md[0])
         docx_path = path_md.replace(".md", ".docx")
-        logging.info(f"🔄 Updating existing files for {title} (Project {project_id})")
+        logging.info(f"Updating existing files for {title} (Project {project_id})")
     else:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         filename_base = f"{filename_base}_{timestamp}"
         path_md = os.path.join(OUTPUT_DIR, f"{filename_base}.md")
         docx_path = os.path.join(OUTPUT_DIR, f"{filename_base}.docx")
-        logging.info(f"🆕 Creating new files for {title} (Project {project_id})")
+        logging.info(f" Creating new files for {title} (Project {project_id})")
 
     try:
         with open(path_md, "w", encoding="utf-8") as f:
             f.write(content)
-        logging.info(f"✅ Saved Markdown: {path_md}")
+        logging.info(f"Saved Markdown: {path_md}")
     except Exception as e:
-        logging.error(f"❌ Failed to save Markdown: {e}")
+        logging.error(f" Failed to save Markdown: {e}")
 
     try:
         doc = Document()
         for line in content.split("\n"):
             doc.add_paragraph(line)
         doc.save(docx_path)
-        logging.info(f"✅ Saved Word: {docx_path}")
+        logging.info(f" Saved Word: {docx_path}")
     except Exception as e:
-        logging.error(f"❌ Failed to save Word: {e}")
+        logging.error(f" Failed to save Word: {e}")
 
     return path_md, docx_path
