@@ -18,3 +18,5 @@ GITLAB_TOKEN=your_gitlab_access_token
 GITLAB_PROJECT_ID=your_project_id
 GEMINI_API_KEY=your_gemini_api_key
 ```
+## Upcoming feature..
+Adding send email to the person to whom userstory has been assigned and who created the user story to validate the document.
